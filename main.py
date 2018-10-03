@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 def valid_user_pass(userpass):
-    if userpass == '' or len(userpass) < 3 or len(userpass) > 20:
+    if len(userpass) < 3 or len(userpass) > 20:
         return False   
     elif ' ' in userpass:
         return False
@@ -19,6 +19,8 @@ def valid_confirm(password, confirm):
         return False
 
 def valid_email(address):
+    if address == '':
+        return True
     if not valid_user_pass(address): 
         return False
     if address.count('@') != 1:
@@ -67,7 +69,7 @@ def index():
         return redirect('/welcome')
     #IF AN INPUT IS INVALID, RETURN FORM WITH ERROR MESSAGES
     else:
-        return render_template('/')
+        return render_template('index.html', u_error=u_error, p_error=p_error, c_error=c_error, e_error=e_error, username=u, email=e )
 
 
 @app.route("/welcome")

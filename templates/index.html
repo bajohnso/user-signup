@@ -9,28 +9,36 @@
             <!-- USERNAME INPUT -->
             <label>
                 Username: 
-                <input id = 'username' type = 'text' name = 'username' />
+                <input id = 'username' type = 'text' name = 'username'>
+                    {{u_error}}
+                </input>
             </label>
             <br><br>
             
             <!-- PASSWORD INPUT -->
             <label>
                 Password: 
-                <input id = "password" type = 'password' name = 'password'/>
+                <input id = "password" type = 'password' name = 'password'>
+                    {{p_error}}
+                </input>
             </label>
             <br><br>
 
             <!-- VALIDATE PASSWORD -->
             <label>
                 Re-enter password: 
-                <input id = 'confirm' type = 'password' name = 'confirm'/>
+                <input id = 'confirm' type = 'password' name = 'confirm'>
+                    {{c_error}}
+                </input>
             </label>
             <br><br>
 
             <!-- EMAIL INPUT -->
             <label>
                 Email *(optional): 
-                <input id = 'email' type = 'text' name = 'email'/>     
+                <input id = 'email' type = 'text' name = 'email'>
+                    {{e_error}}
+                </input>
             </label>
             <br><br>
 
