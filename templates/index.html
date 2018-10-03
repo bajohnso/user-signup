@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Header -->
+        <h1> User Signup </h1>
     </head>
 
-    <body>
+    <body> 
+        <form action = '/' method = 'POST'>
+            <!-- USERNAME INPUT -->
+            <label>
+                Username: 
+                <input id = 'username' type = 'text' name = 'username' />
+            </label>
+            <br><br>
+            
+            <!-- PASSWORD INPUT -->
+            <label>
+                Password: 
+                <input id = "password" type = 'password' name = 'password'/>
+            </label>
+            <br><br>
 
-        <!-- USERNAME INPUT -->
-        <form action = '' method = 'post'>
-            <label for = 'user'> Username: </label>
-            <input id = 'user' type = 'text' name = 'username' />
+            <!-- VALIDATE PASSWORD -->
+            <label>
+                Re-enter password: 
+                <input id = 'confirm' type = 'password' name = 'confirm'/>
+            </label>
+            <br><br>
+
+            <!-- EMAIL INPUT -->
+            <label>
+                Email *(optional): 
+                <input id = 'email' type = 'text' name = 'email'/>     
+            </label>
+            <br><br>
+
             <input type = 'submit'/>
-        <form> 
-        
-        <br><br>
-        
-        <!-- PASSWORD INPUT -->
-        <form action = '' method = 'post'>
-            <label for = 'password'> Password: </label>
-            <input id = "password" type = 'password' name = 'password'/>
-            <input type = 'submit'/>
-        </form>
-
-        <br>
-
-        <!-- VALIDATE PASSWORD -->
-        <form action = '' method = 'post'>
-            <label for = 'validate'> Re-enter password: </label>
-            <input id = 'validate' type = 'password' name = 'validate_password'/>
-            <input type = 'submit'/>
-        </form>
-
-        <br>
-
-        <!-- EMAIL INPUT -->
-        <form action = '' method = 'post'>
-            <label for = 'email'> Email *(optional): </label>
-            <input id = 'email' type = 'text' name = 'email'/>
-            <input type = 'submit'/>
-        </form>
-
+        </form>    
     </body>
 </html>
