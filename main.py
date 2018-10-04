@@ -4,6 +4,7 @@ import os
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
+
 def valid_user_pass(userpass):
     if len(userpass) < 3 or len(userpass) > 20:
         return False   
@@ -48,7 +49,7 @@ def index():
         c_error = ''
         e_error = ''
 
-        if not valid_user_pass(u):
+        if not valid_user_pass(request.form['username']):
             u_error = 'Username must have 3-20 characters and no spaces.'
             u = ''
 
@@ -57,7 +58,7 @@ def index():
             p = ''
 
         if not valid_confirm(p,c):
-            c_error = 'Password entries don"t match.'
+            c_error = "Password entries don't match."
             c = ''
         
         if not valid_email(e):
@@ -66,16 +67,18 @@ def index():
 
     #IF ALL INPUTS VALID, REDIRECT TO WELCOME PAGE
     if not u_error and not p_error and not c_error and not e_error:
-        return redirect('/welcome')
+        u = request.form['username']
+        return redirect('/welcome?u={0}'.format(u))
     #IF AN INPUT IS INVALID, RETURN FORM WITH ERROR MESSAGES
     else:
-        return render_template('index.html', u_error=u_error, p_error=p_error, c_error=c_error, e_error=e_error, username=u, email=e )
+        return render_template('index.html', u_error=u_error, p_error=p_error, c_error=c_error, e_error=e_error, username=u, email=e)
 
 
 @app.route("/welcome")
 
 def valid_inputs():
-    return 'Welcome!'  
+    u = request.args.get('u')
+    return render_template('welcome.html',username=u)
 
 
 app.run()

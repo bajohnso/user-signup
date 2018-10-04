@@ -1,48 +1,42 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <h1> User Signup </h1>
-    </head>
+{% extends 'base.html' %}  
 
-    <body> 
-        <form action = '/' method = 'POST'>
-            <!-- USERNAME INPUT -->
-            <label>
-                Username: 
-                <input id = 'username' type = 'text' name = 'username'>
-                    {{u_error}}
-                </input>
-            </label>
-            <br><br>
-            
-            <!-- PASSWORD INPUT -->
-            <label>
-                Password: 
-                <input id = "password" type = 'password' name = 'password'>
-                    {{p_error}}
-                </input>
-            </label>
-            <br><br>
+{% block content %}
 
-            <!-- VALIDATE PASSWORD -->
-            <label>
-                Re-enter password: 
-                <input id = 'confirm' type = 'password' name = 'confirm'>
-                    {{c_error}}
-                </input>
-            </label>
-            <br><br>
+    <form action = '/' method = 'POST'>
+        <!-- USERNAME INPUT -->
+        <label>
+            Username: 
+            <input name='username' type='text' value='{{username}}'/>
+        </label>
+        {{u_error}}
+        <br><br>
+        
+        <!-- PASSWORD INPUT -->
+        <label>
+            Password: 
+            <input name='password' type='password'/>
+        </label>
+        {{p_error}}
 
-            <!-- EMAIL INPUT -->
-            <label>
-                Email *(optional): 
-                <input id = 'email' type = 'text' name = 'email'>
-                    {{e_error}}
-                </input>
-            </label>
-            <br><br>
+        <br><br>
 
-            <input type = 'submit'/>
-        </form>    
-    </body>
-</html>
+        <!-- VALIDATE PASSWORD -->
+        <label>
+            Re-enter password: 
+            <input name='confirm' type='password'/>
+        </label>
+        {{c_error}}
+        <br><br>
+
+        <!-- EMAIL INPUT -->
+        <label>
+            Email *(optional): 
+            <input name='email' type='text' value='{{email}}'/>
+        </label>
+        {{e_error}}
+        <br><br>
+
+        <input type = 'submit'/>
+    </form>    
+
+{% endblock %}
